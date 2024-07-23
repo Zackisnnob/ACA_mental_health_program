@@ -103,7 +103,7 @@ with open(pkl_filename, 'rb') as file:
 
 
 st.divider()
-Thanks for the training data obtained from Kaggle.com.
+st.write("Thanks for the training data obtained from Kaggle.com.")
 
 
             
