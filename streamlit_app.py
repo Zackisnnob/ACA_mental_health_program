@@ -99,7 +99,8 @@ with open(pkl_filename, 'rb') as file:
             st.write("The data collected from the above survey form:")
             st.write(X_temp)
             st.write("The probability that one should be treated of mental health:")
-            st.write(round(Ypredict[0][1], 2))
+            prediction_results = f"{round(Ypredict[0][1], 4) * 100}%"
+            st.write(prediction_results)
 
 
 st.divider()
