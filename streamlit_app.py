@@ -99,7 +99,7 @@ with open(pkl_filename, 'rb') as file:
             st.write("The data collected from the above survey form:")
             st.write(X_temp.T)
             st.write("The probability that one should be treated of mental health:")
-            prediction_results = f"{round(Ypredict[0][1], 4) * 100}%"
+            prediction_results = f"{round(Ypredict[0][1], 3) * 100}%"
             st.write(prediction_results)
 
 
