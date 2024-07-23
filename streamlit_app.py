@@ -42,7 +42,7 @@ with open(pkl_filename, 'rb') as file:
         leave = st.radio('7.How easy is it for you to take medical leave for a mental health condition?', leave_options, index=0)
         leave_index = leave_options.index(leave)
 
-        work_interfere_options = ["Don't know", 'Never', 'Often', 'Rarely', 'Sometimes']
+        work_interfere_options = ["Do not know", 'Never', 'Often', 'Rarely', 'Sometimes']
         work_interfere = st.radio('8.If you have a mental health condition, do you feel that it interferes with your work?', work_interfere_options, index=0)
         work_interfere_index = work_interfere_options.index(work_interfere)
 
