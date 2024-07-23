@@ -4,7 +4,7 @@ import pandas as pd
 from PIL import Image
 
 image = Image.open('Mental Health.png')
-st.image(image, caption='', width=200)
+st.image(image, caption='', width=150)
 
 pkl_filename = "pickle_model.pkl"
 st.header("AI-Driven Mental Health Risk Assmt. Webapp")
