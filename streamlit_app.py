@@ -199,7 +199,7 @@ with open(pkl_filename, 'rb') as file:
             df = pd.read_csv('mental_health_survey_date.csv')
             st.write(f':green[You are the No.{df.shape[0]} user. Thanks for your participation.]')
             
-            st.write("The probability that one should be treated of mental health: :green[{round(Ypredict[0][1], 4)*100}%]")
+            st.write("The probability that one should be treated of mental health:" + f":green[{round(Ypredict[0][1], 4)*100}%]")
             st.write(f':green[{round(Ypredict[0][1], 4)*100}%]')
 
 
