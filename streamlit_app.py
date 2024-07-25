@@ -198,7 +198,7 @@ with open(pkl_filename, 'rb') as file:
             X_temp.to_csv('mental_health_survey_date.csv', mode='a', index=False, header=False)
             df = pd.read_csv('mental_health_survey_date.csv')
             
-            st.write(f':green[_You are the #{df.shape[0]} user. Thanks for your participation._]')
+            st.write(f':green[You are the #{df.shape[0]} user. Thanks for your participation.]')
             
             st.write("The probability that one should be treated of mental health:")
             st.write(round(Ypredict[0][1], 2))
