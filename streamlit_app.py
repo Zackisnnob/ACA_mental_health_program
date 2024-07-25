@@ -195,7 +195,7 @@ with open(pkl_filename, 'rb') as file:
             st.subheader("Mental Health Risk Assessment")
             st.write("The data collected from the above survey form:")
             st.write(X_temp.T)
-                        X_temp.to_csv('mental_health_survey_date.csv', mode='a', index=False, header=False)
+            X_temp.to_csv('mental_health_survey_date.csv', mode='a', index=False, header=False)
             df = pd.read_csv('mental_health_survey_date.csv')
             st.write(df.shape)
             
