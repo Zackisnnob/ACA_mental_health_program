@@ -197,14 +197,14 @@ with open(pkl_filename, 'rb') as file:
             st.write(X_temp)
             X_temp.to_csv('mental_health_survey_date.csv', mode='a', index=False, header=False)
             df = pd.read_csv('mental_health_survey_date.csv')
-            st.write(f':red[You are the #{df.shape[0]} user. Thanks for your participation.]') 
-            st.write(f"The probability that one should be treated of mental health: :red[{round(Ypredict[0][1], 4)*100}%].")
+            st.write(f':green[You are the #{df.shape[0]} user. Thanks for your participation.]') 
+            st.write(f"The probability that one should be treated of mental health: :green[{round(Ypredict[0][1], 4)*100}%].")
 
 
 # with open('mental_health_survey_date.csv') as f:
 #    st.download_button('Download CSV', f)  # Defaults to 'text/plain'
 
-st.divider()
+# st.divider()
 st.write("**_This web app was developed by CYD mental health group and thanks for the public dataset from Kaggle.com._**")
 
 
