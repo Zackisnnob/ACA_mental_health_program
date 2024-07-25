@@ -8,7 +8,7 @@ image = Image.open('Mental Health.png')
 st.image(image, caption='', width=150)
 
 pkl_filename = "pickle_model.pkl"
-st.header("AI-Driven Mental Health Risk Assmt. Webapp")
+st.header("AI-Driven Mental Health Risk Assmt. Web App")
 st.write("Please answer the questions to the best of your ability.")
 col1, col2 = st.columns(2)
 
