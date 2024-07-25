@@ -16,75 +16,167 @@ with open(pkl_filename, 'rb') as file:
 
 # with col1:
     with st.form('Form1'):
-        age = st.slider(label='1.What is your age?', min_value=18, max_value=100, key=0)
+        Time = datetime.now()
 
-        gender_options = ['Male', 'Female', 'Transgender/Non Binary']
-        gender = st.radio("2.Gender ", gender_options, index=0)
+        age = st.slider(label='1.What is your age?', min_value=18, max_value=72)
+
+        gender_options = ['Female', 'Male', 'Transgender/Non Binary']
+        gender = st.radio("2.To which gender identity do you most identify?", gender_options, index=0)
         gender_index = gender_options.index(gender)
 
+        country_options = [
+            'Australia', 'Austria', 'Belgium', 'Bosnia and Herzegovina', 'Brazil', 'Bulgaria',
+            'Canada', 'China', 'Colombia', 'Costa Rica', 'Croatia', 'Czech Republic', 'Denmark',
+            'Finland', 'France', 'Georgia', 'Germany', 'Greece', 'Hungary', 'India', 'Ireland',
+            'Israel', 'Italy', 'Japan', 'Latvia', 'Mexico', 'Moldova', 'Netherlands', 'New Zealand',
+            'Nigeria', 'Norway', 'Philippines', 'Poland', 'Portugal', 'Romania', 'Russia',
+            'Singapore', 'Slovenia', 'South Africa', 'Spain', 'Sweden', 'Switzerland', 'Thailand',
+            'United Kingdom', 'United States', 'Uruguay', 'Zimbabwe'
+        ]
+        country = st.selectbox('3.What country do you live in?', country_options, index=country_options.index('United States'))
+        country_index = country_options.index(country)
+
+        employment_options = ['No', 'Yes']
+        employment = st.radio('4.Are you self employed?', employment_options, index=0)
+        employment_index = employment_options.index(employment)
+
         family_history_options = ['No', 'Yes']
-        family_history = st.radio('3.Do you have a family history of mental illness?', family_history_options, index=0)
+        family_history = st.radio('5.Do you have a family history of mental illness?', family_history_options, index=0)
         family_history_index = family_history_options.index(family_history)
 
+        work_interfere_options = ["Don't know", 'Never', 'Often', 'Rarely', 'Sometimes']
+        work_interfere = st.radio(
+            '6.If you have a mental health condition, do you feel that it interferes with your work?',
+            work_interfere_options, index=0)
+        work_interfere_index = work_interfere_options.index(work_interfere)
+
+        employees_options = ['1-5', '100-500', '26-100', '500-1000', '6-25', 'More than 1000']
+        employees = st.radio('7.How many employees does your company or organization have?', employees_options,
+                             index=0)
+        employees_index = employees_options.index(employees)
+
+        remote_options = ['No', 'Yes']
+        remote = st.radio('8.Do you work remotely (outside of an office) at least half of the time?', remote_options,
+                          index=0)
+        remote_index = remote_options.index(remote)
+
+        tech_company_options = ['No', 'Yes']
+        tech_company = st.radio('9.Is your employer primarily a tech company/organization?', tech_company_options,
+                                index=0)
+        tech_company_index = tech_company_options.index(tech_company)
+
         benefits_options = ['Do not know', 'No', 'Yes']
-        benefits = st.radio('4.Does your employer provide mental health benefits?', benefits_options, index=0)
+        benefits = st.radio('10.Does your employer provide mental health benefits?', benefits_options, index=0)
         benefits_index = benefits_options.index(benefits)
 
         care_options = ['No', 'Not sure', 'Yes']
-        care = st.radio('5.Do you know the options for mental health care your employer provides?', care_options, index=0)
+        care = st.radio('11.Do you know the options for mental health care your employer provides?', care_options, index=1)
         care_options_index = care_options.index(care)
 
+        wellness_program_options = ['Do not know', 'No', 'Yes']
+        wellness_program = st.radio(
+            '12.Has your employer ever discussed mental health as part of an employee wellness program?',
+            wellness_program_options, index=0)
+        wellness_program_index = wellness_program_options.index(wellness_program)
+
+        resources_mh_issues_options = ['Do not know', 'No', 'Yes']
+        resources_mh_issues = st.radio(
+            '13.Does your employer provide resources to learn more about mental health issues and how to seek help?',
+            resources_mh_issues_options, index=0)
+        resources_mh_issues_index = resources_mh_issues_options.index(resources_mh_issues)
+
         anonymity_options = ['Do not know', 'No', 'Yes']
-        anonymity = st.radio('6.Is your anonymity protected if you choose to take advantage of mental health or substance abuse treatment resources?', anonymity_options, index=0)
+        anonymity = st.radio(
+            '14.Is your anonymity protected if you choose to take advantage of mental health or substance abuse treatment resources?',
+            anonymity_options, index=0)
         anonymity_index = anonymity_options.index(anonymity)
 
-        leave_options = ['Do not know', 'Somewhat Difficult','Somewhat Easy', 'Very difficult', 'Very easy']
-        leave = st.radio('7.How easy is it for you to take medical leave for a mental health condition?', leave_options, index=0)
+        leave_options = ['Do not know', 'Somewhat Difficult', 'Somewhat Easy', 'Very difficult', 'Very easy']
+        leave = st.radio('15.How easy is it for you to take medical leave for a mental health condition?', leave_options,
+                         index=0)
         leave_index = leave_options.index(leave)
 
-        work_interfere_options = ["Do not know", 'Never', 'Often', 'Rarely', 'Sometimes']
-        work_interfere = st.radio('8.If you have a mental health condition, do you feel that it interferes with your work?', work_interfere_options, index=0)
-        work_interfere_index = work_interfere_options.index(work_interfere)
+        neg_conseq_mh_options = ['Maybe', 'No', 'Yes']
+        neg_conseq_mh = st.radio(
+            '16.Do you think that discussing a mental health issue with your employer would have negative consequences?',
+            neg_conseq_mh_options, index=1)
+        neg_conseq_mh_index = neg_conseq_mh_options.index(neg_conseq_mh)
 
+        neg_conseq_ph_options = ['Maybe', 'No', 'Yes']
+        neg_conseq_ph = st.radio(
+            '17.Do you think that discussing a physical health issue with your employer would have negative consequences?',
+            neg_conseq_ph_options, index=1)
+        neg_conseq_ph_index = neg_conseq_ph_options.index(neg_conseq_ph)
 
-        # v2 = st.selectbox('Select Gender', ['Male', 'Female', 'Transgender/Non Binary'], key=1)
-        # v3 = st.selectbox('What country do you live in?', ['Australia', 'Austria', 'Belgium', 'Bosnia and Herzegovina', 'Brazil', 'Bulgaria', 'Canada', 'China', 'Colombia', 'Costa Rica', 'Croatia', 'Czech Republic', 'Denmark', 'Finland', 'France', 'Georgia', 'Germany', 'Greece', 'Hungary', 'India', 'Ireland', 'Israel', 'Italy', 'Japan', 'Latvia', 'Mexic o', 'Moldova', 'Netherlands', 'New Zealand', 'Nigeria', 'Norway', 'Philippines', 'Poland', 'Portugal', 'Romania', 'Russia', 'Singapore', 'Slovenia', 'South Africa', 'Spain', 'Sweden', 'Switzerland', 'Thailand', 'United Kingdom', 'United States', 'Uruguay', 'Zimbabwe'], key=2)
-        # v4 = st.selectbox('Are you self employed?', ['No','Yes'], key=3)
-        # v5 = st.selectbox('Do you have a family history of mental illness?', ['No', 'Yes'], key=4)
-        # v6 = st.selectbox('If you have a mental health condition, do you feel that it interferes with your work?', ['No', 'Yes'], key=5)
-        # v7 = st.selectbox('How many employees does your company or organization have?', ['1-5','100-500', '26-100', '500-1000', '6-25', 'More than 1000'], key=6)
-        # v8 = st.selectbox('Do you work remotely (outside of an office) at least half of the time?', ['No', 'Yes'], key=7)
-        # v9 = st.selectbox('Is your employer primarily a tech company/organization?', ['No', 'Yes'], key=8)
-        # v10 = st.selectbox('Does your employer provide mental health benefits?', ['Do not know', 'No', 'Yes'], key=9)
-        # v11 = st.selectbox('Do you know the options for mental health care your employer provides?', ['No', 'Not sure', 'Yes'], key=10)
-        # v12 = st.selectbox('Has your employer ever discussed mental health as part of an employee wellness program?', ['Do not know', 'No', 'Yes'], key=11)
-        # v13 = st.selectbox('Does your employer provide resources to learn more about mental health issues and how to seek help?', ['Do not know', 'No', 'Yes'], key=12)
-        # v14 = st.selectbox('Is your anonymity protected if you choose to take advantage of mental health or substance abuse treatment resources?', ['Do not know', 'No', 'Yes'], key=13)
-        # v15 = st.selectbox('How easy is it for you to take medical leave for a mental health condition?', ['Do not know', 'Somewhat Difficult','Somewhat Easy', 'Very difficult', 'Very easy'], key=14)
-        # v16 = st.selectbox('Do you think that discussing a mental health issue with your employer would have negative consequences?', ['No', 'Some of Them', 'Yes'], key=15)
-        # v17 = st.selectbox('Do you think that discussing a physical health issue with your employer would have negative consequences?', ['No', 'Some of Them', 'Yes'], key=16)
-        # v18 = st.selectbox('Would you be willing to discuss a mental health issue with your coworkers?', ['No', 'Some of Them', 'Yes'], key=17)
-        # v19 = st.selectbox('Would you be willing to discuss a mental health issue with your direct supervisor(s)?', ['No', 'Some of Them', 'Yes'], key=18)
-        # v20 = st.selectbox('Would you bring up a mental health issue with a potential employer in an interview?', ['Maybe', 'No', 'Yes'], key=19)
-        # v21 = st.selectbox('Would you bring up a physical health issue with a potential employer in an interview?', ['Maybe', 'No', 'Yes'], key=20)
-        # v22 = st.selectbox('Do you feel that your employer takes mental health as seriously as physical health?', ['Do not know', 'No', 'Yes'], key=21)
-        # v23 = st.selectbox('Have you heard of or observed negative consequences for coworkers with mental health conditions in your workplace?', ['No', 'Yes'], key=22)
+        discuss_coworkers_options = ['No', 'Some of them', 'Yes']
+        discuss_coworkers = st.radio('18.Would you be willing to discuss a mental health issue with your coworkers?',
+                                     discuss_coworkers_options, index=0)
+        discuss_coworkers_index = discuss_coworkers_options.index(discuss_coworkers)
+
+        discuss_supervisors_options = ['No', 'Some of Them', 'Yes']
+        discuss_supervisors = st.radio(
+            '19.Would you be willing to discuss a mental health issue with your direct supervisor(s)?',
+            discuss_supervisors_options, index=0)
+        discuss_supervisors_index = discuss_supervisors_options.index(discuss_supervisors)
+
+        discuss_potential_mh_options = ['Maybe', 'No', 'Yes']
+        discuss_potential_mh = st.radio(
+            '20.Would you bring up a mental health issue with a potential employer in an interview?',
+            discuss_potential_mh_options, index=0)
+        discuss_potential_mh_index = discuss_potential_mh_options.index(discuss_potential_mh)
+
+        discuss_potential_ph_options = ['Maybe', 'No', 'Yes']
+        discuss_potential_ph = st.radio(
+            '21.Would you bring up a physical health issue with a potential employer in an interview?',
+            discuss_potential_ph_options, index=0)
+        discuss_potential_ph_index = discuss_potential_ph_options.index(discuss_potential_ph)
+
+        takes_mh_seriously_options = ['Do not know', 'No', 'Yes']
+        takes_mh_seriously = st.radio(
+            '22.Do you feel that your employer takes mental health as seriously as physical health?',
+            takes_mh_seriously_options, index=0)
+        takes_mh_seriously_index = takes_mh_seriously_options.index(takes_mh_seriously)
+
+        observed_neg_conseq_options = ['No', 'Yes']
+        observed_neg_conseq = st.radio(
+            '23.Have you heard of or observed negative consequences for coworkers with mental health conditions in your workplace?',
+            observed_neg_conseq_options, index=0)
+        observed_neg_conseq_index = observed_neg_conseq_options.index(observed_neg_conseq)
+
+        comment = st.text_input("24.Any additional notes or comments:")
+
         submitted = st.form_submit_button('Submit')
 
         if submitted:
             X_temp = {
+                'Time': [Time],
                 'Age': [age],
                 "Gender": [gender],
+                "Country": [country],
+                "self_employment": [employment],
                 "family_history": [family_history],
+                "work_interfere": [work_interfere],
+                "no_employees": [employees],
+                "remote_work": [remote],
+                "tech_company": [tech_company],
                 "benefits": [benefits],
                 "care_options": [care],
+                "wellness_program": [wellness_program],
+                "seek_help": [resources_mh_issues],
                 "anonymity": [anonymity],
                 "leave": [leave],
-                "work_interfere": [work_interfere]
+                "mental_health_consequence": [neg_conseq_mh],
+                "physical_health_consequence": [neg_conseq_ph],
+                "coworkers": [discuss_coworkers],
+                "supervisor": [discuss_supervisors],
+                "mental_health_interview": [discuss_potential_mh],
+                "physical_health_interview": [discuss_potential_ph],
+                "mental_vs_physical": [takes_mh_seriously],
+                "obs_consequence": [observed_neg_conseq],
+                "comments": [comment]
             }
-
             X_test = {
-                'Age': [(age - 18)/(72 - 18)],
+                'Age': [(age - 18) / (72 - 18)],
                 "Gender": [gender_index],
                 "family_history": [family_history_index],
                 "benefits": [benefits_index],
@@ -103,18 +195,10 @@ with open(pkl_filename, 'rb') as file:
             st.write("The data collected from the above survey form:")
             st.write(X_temp.T)
             st.write("The probability that one should be treated of mental health:")
-            prediction_results = f"{round(Ypredict[0][1], 3) * 100}%"
-            st.write(prediction_results)
-
+            st.write(round(Ypredict[0][1], 2))
+            X_temp.to_csv('mental_health_survey_date.csv', mode='a', index=False, header=False)
 
 st.divider()
 st.write("**_This web app was developed by CYD mental health group and thanks for the public dataset from Kaggle.com._**")
 
-            
-# X_test=[[v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23]]
-# st.write(X_test)
 
-# with col2:
-#     with st.form('Form2'):
-#         submitted4 = st.slider(label='How would you rate this survey?', min_value=0, max_value=100, key=100)
-#         submitted5 = st.form_submit_button('Submit')
