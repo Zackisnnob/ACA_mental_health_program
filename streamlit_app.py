@@ -203,7 +203,7 @@ with open(pkl_filename, 'rb') as file:
 
 
 with open('mental_health_survey_date.csv') as f:
-   st.download_button('Download CSV', f)  # Defaults to 'text/plain'
+   st.download_button('Download CSV', f, 'text/csv')  # Defaults to 'text/plain'
     
 st.divider()
 st.write("**_This web app was developed by CYD mental health group and thanks for the public dataset from Kaggle.com._**")
