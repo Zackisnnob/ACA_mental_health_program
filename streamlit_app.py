@@ -195,11 +195,13 @@ with open(pkl_filename, 'rb') as file:
             st.subheader("Mental Health Risk Assessment")
             st.write("The data collected from the above survey form:")
             st.write(X_temp.T)
-            st.write("The probability that one should be treated of mental health:")
-            st.write(round(Ypredict[0][1], 2))
-            X_temp.to_csv('mental_health_survey_date.csv', mode='a', index=False, header=False)
+                        X_temp.to_csv('mental_health_survey_date.csv', mode='a', index=False, header=False)
             df = pd.read_csv('mental_health_survey_date.csv')
             st.write(df.shape)
+            
+            st.write("The probability that one should be treated of mental health:")
+            st.write(round(Ypredict[0][1], 2))
+
 
 # with open('mental_health_survey_date.csv') as f:
 #    st.download_button('Download CSV', f)  # Defaults to 'text/plain'
