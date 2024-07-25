@@ -196,7 +196,7 @@ with open(pkl_filename, 'rb') as file:
             st.write(X_temp.T)
             st.write("The probability that one should be treated of mental health:")
             st.write(round(Ypredict[0][1], 2))
-            X_temp.to_csv('mental_health_survey_date.csv', mode='a', index=False, header=False)
+            # X_temp.to_csv('mental_health_survey_date.csv', mode='a', index=False, header=False)
 
 st.write('test')
 st.divider()
