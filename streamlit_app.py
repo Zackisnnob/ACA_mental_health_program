@@ -194,7 +194,7 @@ with open(pkl_filename, 'rb') as file:
             st.divider()
             st.subheader("Mental Health Risk Assessment")
             st.write("The data collected from the above survey form:")
-            st.write(X_temp.T)
+            st.write(X_temp)
             X_temp.to_csv('mental_health_survey_date.csv', mode='a', index=False, header=False)
             df = pd.read_csv('mental_health_survey_date.csv')
             st.write(f':blue[You are the #{df.shape[0]} user. Thanks for your participation.]') 
