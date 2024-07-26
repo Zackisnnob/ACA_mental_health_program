@@ -198,7 +198,7 @@ with open(pkl_filename, 'rb') as file:
             X_temp.to_csv('mental_health_survey_date.csv', mode='a', index=False, header=False)
             df = pd.read_csv('mental_health_survey_date.csv')
             st.write(f':blue[You are the #{df.shape[0]} user. Thanks for using.]') 
-            st.write(f"The probability that one should be treated of mental health: :red[{round(Ypredict[0][1], 1)*100}%].")
+            st.write(f"The probability that one should be treated of mental health: :red[{round(Ypredict[0][1])*100}%].")
 
 
 # with open('mental_health_survey_date.csv') as f:
