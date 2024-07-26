@@ -187,7 +187,7 @@ with open(pkl_filename, 'rb') as file:
                 "work_interfere": [work_interfere_index]
             }
 
-            X_temp = pd.DataFrame(X_temp, index=False)
+            X_temp = pd.DataFrame(X_temp)
             X_test = pd.DataFrame(X_test)
             Ypredict = pickle_model.predict_proba(X_test)
 
