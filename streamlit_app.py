@@ -205,6 +205,6 @@ with open(pkl_filename, 'rb') as file:
 #    st.download_button('Download CSV', f)  # Defaults to 'text/plain'
 
 st.divider()
-st.write("**_This web app was developed by CYD mental health group and thanks for the public dataset from Kaggle.com._**")
+st.write("**_This web app was developed by CYD Mental Health group and thanks for the public dataset from Kaggle._**")
 
 
